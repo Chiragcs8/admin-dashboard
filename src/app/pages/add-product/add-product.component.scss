@@ -1,0 +1,41 @@
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+mat-form-field {
+  min-width: 160px;
+  flex: 1;
+}
+
+.in-stock {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin-top: 4px;
+}
+
+.btn {
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive fallback */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

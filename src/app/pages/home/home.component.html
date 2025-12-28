@@ -1,5 +1,5 @@
 <div>
-  <div class="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     <mat-card class="p-4 bg-blue-200!">
       <h5 class="mb-4 text-3xl font-semibold!">Sales</h5>
       <div class="flex justify-between items-center">
@@ -8,7 +8,7 @@
           <span class="text-green-600">+10%</span>
         </div>
         <div>
-            <mat-icon>attach_money</mat-icon>
+          <mat-icon>attach_money</mat-icon>
         </div>
       </div>
     </mat-card>
@@ -20,7 +20,7 @@
           <span class="text-red-600">-20%</span>
         </div>
         <div>
-            <mat-icon>bar_chart</mat-icon>
+          <mat-icon>bar_chart</mat-icon>
         </div>
       </div>
     </mat-card>
@@ -32,7 +32,7 @@
           <span class="text-green-600">+10%</span>
         </div>
         <div>
-            <mat-icon>add_shopping_cart</mat-icon>
+          <mat-icon>add_shopping_cart</mat-icon>
         </div>
       </div>
     </mat-card>
@@ -44,9 +44,44 @@
           <span class="text-green-600">+8%</span>
         </div>
         <div>
-            <mat-icon>branding_watermark</mat-icon>
+          <mat-icon>branding_watermark</mat-icon>
         </div>
       </div>
+    </mat-card>
+  </div>
+
+  <div class="mt-4">
+    <div class="grid grid-cols-3 gap-8">
+      <mat-card class="col-span-2 p-4">
+        <h5 class="font-semibold">Sales Overview</h5>
+        <canvas
+          baseChart
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [type]="'bar'"
+        >
+        </canvas>
+      </mat-card>
+      <mat-card class="p-4"><h5 class="font-semibold">Sales by Category Overview</h5>
+    <canvas
+        baseChart
+        [type]="'pie'"
+        [data]="pieChartData"
+        [options]="pieChartOptions"
+      >
+      </canvas>
+    </mat-card>
+    </div>
+  </div>
+
+  <div class="mt-4 bg-white">
+    <mat-card class="p-4! bg-white! mb-2">
+      <h5 class="text-xl font-semibold">Today's Orders</h5>
+      
+
+      <app-table />
     </mat-card>
   </div>
 </div>

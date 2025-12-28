@@ -1,1 +1,45 @@
-<p>add-product works!</p>
+<mat-card class="mx-auto p-4 w-6/12">
+  <form [formGroup]="productForm" (ngSubmit)="submit()" class="product-form">
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Product name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          @for (c of categories; track c) {
+            <mat-option [value]="c">{{ c }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+
+      <div class="in-stock">
+        <label>
+          <input type="checkbox" formControlName="inStock" />
+          In stock
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="btn primary"
+        [disabled]="productForm.invalid">
+        Add
+      </button>
+    </div>
+
+  </form>
+</mat-card>
