@@ -9,11 +9,14 @@
   </button>
   <span class="text-white!">Admin Dashboard</span>
   <span class="example-spacer"></span>
-  <button matIconButton class="text-white! cursor-pointer" [matMenuTriggerFor]="menu" >
+  <button
+    matIconButton
+    class="text-white! cursor-pointer"
+    [matMenuTriggerFor]="menu"
+  >
     <mat-icon>people</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Setting</button>
-    <button mat-menu-item>Logout</button>
+    <button routerLink="/login" mat-menu-item>Logout</button>
   </mat-menu>
 </mat-toolbar>
