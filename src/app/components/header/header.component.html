@@ -1,0 +1,19 @@
+<mat-toolbar class="bg-blue-500!">
+  <button
+    matIconButton
+    class="text-white! cursor-pointer flex items-center justify-center m-1"
+    aria-label="Example icon-button with menu icon"
+    (click)="sideBarButtonClick()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="text-white!">Admin Dashboard</span>
+  <span class="example-spacer"></span>
+  <button matIconButton class="text-white! cursor-pointer" [matMenuTriggerFor]="menu" >
+    <mat-icon>people</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Setting</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>

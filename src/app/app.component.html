@@ -1,3 +1,35 @@
-<h5 class="bg-red-500"> Hello World!</h5>
+<app-header (sidebarToggle)="drawer.toggle()" />
 
-<button mat-flat-button> Click Me</button>
+<mat-drawer-container autosize >
+  <mat-drawer #drawer mode="side" class="shadow-lg!" [opened]="isSidebarOpen">
+    <div class="bg-white h-screen">
+      <mat-nav-list role="list">
+        <mat-list-item role="listitem"
+          ><a class="menu">
+            <mat-icon class="color-blue-500">house</mat-icon>
+            Dashboard</a
+          ></mat-list-item
+        >
+        <mat-list-item role="listitem"
+          ><a class="menu">
+            <mat-icon class="color-blue-500">add_shopping_cart</mat-icon>
+
+            Add-product</a
+          ></mat-list-item
+        >
+        <mat-list-item role="listitem"
+          ><a class="menu">
+            <mat-icon class="color-blue-500">settings</mat-icon>
+            Setting</a
+          ></mat-list-item
+        >
+      </mat-nav-list>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="h-screen! p-8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
