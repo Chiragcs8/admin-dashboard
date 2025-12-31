@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -23,19 +23,22 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnInit {
 
   categories = ['Electronics', 'Clothing', 'Books', 'Food'];
-
-  productForm = this.fb.group({
-    name: ['', Validators.required],
-    price: [null, [Validators.required, Validators.min(1)]],
-    category: ['', Validators.required],
-    description: [''],
-    inStock: [true]
-  });
+  productForm!: ReturnType<FormBuilder['group']>;
 
   constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.productForm = this.fb.group({
+      name: ['', Validators.required],
+      price: [null, [Validators.required, Validators.min(1)]],
+      category: ['', Validators.required],
+      description: [''],
+      inStock: [true]
+    });
+  }
 
   submit() {
     if (this.productForm.invalid) {
